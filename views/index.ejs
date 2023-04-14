@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href=" target=_blank> https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>My Tasker App</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="task-container">
+      <h2> My Tasker</h2><br />
+      <div class="add-task-conatiner">
+        <form method="POST" action="/submit">
+          <input type="text" name="task">
+          <input type="submit" value="Add" />
+        </form>
+      </div>
+      <ul>
+        <% docs.forEach(details=> { %>
+          <li>
+            <div>
+              <%= details.content %>
+              <a href="/update/<%=details._id %>" class="remove"><i class="fa-solid fa-pen"></i></a>
+              <a href="/remove/<%=details._id %>" class="remove"><i class="fa-solid fa-trash"></i></a>
+            </div>
+          </li>
+       <% }) %>
+      </ul>
+      </div>
+      <script src="https://kit.fontawesome.com/87d0dbb5bd.js" crossorigin="anonymous"></script>
+  </body>
+</html>
